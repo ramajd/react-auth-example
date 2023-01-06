@@ -82,8 +82,16 @@ export default class UserAPI {
       token,
       user,
     };
-    console.log({response});
-    
     return response;
+  }
+
+  async restoreUser(token: string) {
+    try {
+      const { id } = JSON.parse(token);
+      const user = await this.getById(id);
+      return user;
+    } catch (error: any) {
+      throw APIError(error);
+    }
   }
 }
