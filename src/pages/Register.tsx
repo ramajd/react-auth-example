@@ -22,7 +22,7 @@ const Register = () => {
     if (user) {
       navigate("/profile");
     }
-  }, [loading, success, user]);
+  }, [loading, success, user, dispatch, navigate,]);
 
   const submitForm = async (data: any) => {
     dispatch(registerUser(data));
